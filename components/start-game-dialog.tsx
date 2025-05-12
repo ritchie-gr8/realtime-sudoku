@@ -47,7 +47,7 @@ const StartGameDialog = () => {
     }
   };
 
-  const isDiabled = !input || !difficulty || loadingText === 'Creating game...';
+  const isDisabled = !input || !difficulty || loadingText === 'Creating game...';
 
   return (
     <div>
@@ -92,7 +92,7 @@ const StartGameDialog = () => {
         </div>
         <SubmitButton
           loadingText={loadingText}
-          isDisabled={isDiabled}
+          isDisabled={isDisabled}
         />
       </GameDialog>
     </div>

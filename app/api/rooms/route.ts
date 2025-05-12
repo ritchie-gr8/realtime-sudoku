@@ -1,7 +1,7 @@
 import { liveblocks } from "@/liveblocks.server.config";
 
 export async function POST(req: Request) {
-  const body = await req.json();
+  const body = await req.text();
 
   if (!body) Response.error();
 

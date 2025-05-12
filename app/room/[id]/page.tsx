@@ -1,0 +1,38 @@
+import GameSettings from "@/components/game-settings";
+import { LiveblocksRoom } from "@/components/liveblocks-room";
+import Mistakes from "@/components/mistakes";
+import ModeToggle from "@/components/mode-toggle";
+import SidePanel from "@/components/side-panel";
+import Sudoku from "@/components/sudoku/sudoku";
+import Timer from "@/components/timer";
+import { NotesProvider } from "@/context/notes-context";
+import { TableCellProvider } from "@/context/table-cell-context";
+
+export default async function Room({ params }: { params: { id: string } }) {
+  return (
+    <LiveblocksRoom roomId={params.id}>
+      <div className="grid grid-cols-6 gap-2 px-2 pt-2 pb-4 sm:gap-4 sm:rounded-xl sm:border sm:p-6 sm:shadow">
+        <div className="order-1 col-span-6 flex h-8 items-center justify-between sm:border-b sm:pb-4">
+          <Timer />
+          <Mistakes />
+          <div className="flex gap-1">
+            <ModeToggle />
+            <GameSettings />
+          </div>
+        </div>
+        <div className="order-4 col-span-1 hidden h-full space-y-3 rounded border p-3 sm:order-2 sm:col-span-1 sm:grid">
+          <SidePanel />
+        </div>
+        <NotesProvider>
+          <TableCellProvider>
+            <div className="order-2 col-span-6 flex size-full place-items-center sm:order-3 sm:col-span-3 sm:p-0">
+              <div className="flex size-full place-items-center">
+                <Sudoku />
+              </div>
+            </div>
+          </TableCellProvider>
+        </NotesProvider>
+      </div>
+    </LiveblocksRoom>
+  );
+}
