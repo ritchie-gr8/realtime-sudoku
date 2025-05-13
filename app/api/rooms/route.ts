@@ -23,6 +23,7 @@ export async function POST(req: Request) {
 
     return storage;
   } catch (error) {
+    console.log(error);
     return Response.error();
   }
 }
