@@ -13,6 +13,8 @@ export async function POST(req: Request) {
     });
 
     const baseUrl = req.url.split("/").slice(0, 3).join("/");
+    const storageUrl = `${baseUrl}/api/storage/`;
+    console.log("Fetching storage URL:", storageUrl);
     const storage = await fetch(`${baseUrl}/api/storage/`, {
       method: "POST",
       body: JSON.stringify({

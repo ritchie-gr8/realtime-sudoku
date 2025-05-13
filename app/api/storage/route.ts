@@ -34,6 +34,7 @@ export async function POST(req: Request) {
     await liveblocks.initializeStorageDocument(id, root);
     return Response.json({ message: "Storage is initialized" });
   } catch (error) {
+    console.log('error from storage route', error);
     return Response.error();
   }
 }
