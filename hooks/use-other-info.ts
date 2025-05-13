@@ -13,7 +13,7 @@ export type OthersType = ReturnType<
   }>
 >;
 
-export const useOtherInfo = () => {
+export const useOthersInfo = () => {
   const others = useOthersMapped((other) => ({
     focusIndex: other.presence.focusIndex,
     name: other.info.name,

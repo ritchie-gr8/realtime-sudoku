@@ -1,4 +1,4 @@
-import { useOtherInfo } from "@/hooks/use-other-info";
+import { useOthersInfo } from "@/hooks/use-other-info";
 import { cn } from "@/lib/utils";
 import { useStorage } from "@liveblocks/react/suspense";
 import { ImmutableCell } from "./sudoku-cell/immutable-cell";
@@ -20,7 +20,7 @@ export const SudokuCell: React.FC<SudokuCellProps> = ({
   tableCell,
   setTableCell,
 }) => {
-  const others = useOtherInfo();
+  const others = useOthersInfo();
 
   const sudoku = useStorage((root) => root.sudoku);
   const validateMode = useStorage((root) => root.validateMode);
@@ -54,7 +54,8 @@ export const SudokuCell: React.FC<SudokuCellProps> = ({
       sharedClassName,
       "bg-primary/[0.04] dark:bg-primary-foreground/50",
       {
-        "bg-primary/[0.12]": otherCellWithSameValue || currentSelectedCell,
+        "bg-primary/[0.12] dark:bg-primary/[0.12]":
+          otherCellWithSameValue || currentSelectedCell,
       }
     );
 

@@ -8,9 +8,9 @@ export async function POST(req: Request) {
     id: "1",
     info: {
       name: res.name,
-      avatar: `https://api.dicebear.com/9.x/thumbs/svg?seed=${
+      avatar: `https://api.dicebear.com/9.x/lorelei/svg?seed=${
         res.name
-      }&scale=80&backgroundColor=0a5b83&backgroundRotation[]&shapeColor=${shapeColor()}`,
+      }&scale=100&backgroundColor=0a5b83&backgroundRotation[]&shapeColor=${shapeColor()}`,
     },
   };
 

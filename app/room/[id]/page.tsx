@@ -1,10 +1,13 @@
+import { Chat } from "@/components/chat";
 import GameSettings from "@/components/game-settings";
 import { LiveblocksRoom } from "@/components/liveblocks-room";
 import Mistakes from "@/components/mistakes";
 import ModeToggle from "@/components/mode-toggle";
+import { Numpad } from "@/components/numpad";
 import SidePanel from "@/components/side-panel";
 import Sudoku from "@/components/sudoku/sudoku";
 import Timer from "@/components/timer";
+import { Toolbar } from "@/components/toolbar";
 import { NotesProvider } from "@/context/notes-context";
 import { TableCellProvider } from "@/context/table-cell-context";
 
@@ -29,6 +32,20 @@ export default async function Room({ params }: { params: { id: string } }) {
               <div className="flex size-full place-items-center">
                 <Sudoku />
               </div>
+            </div>
+            <div className="order-3 col-span-6 my-4 px-1 sm:hidden">
+              <div className="flex w-full gap-2">
+                <Numpad />
+              </div>
+            </div>
+            <div className="order-5 col-span-6 mt-2 flex size-full flex-col gap-1 sm:order-4 sm:col-span-2 sm:m-0 sm:grid">
+              <Chat />
+              <div className="hidden h-full max-h-full grid-cols-5 gap-2 sm:grid">
+                <Numpad />
+              </div>
+            </div>
+            <div className="order-3 col-span-6 mt-1 flex items-center justify-around sm:order-5 sm:col-span-3 sm:col-start-2">
+              <Toolbar />
             </div>
           </TableCellProvider>
         </NotesProvider>
